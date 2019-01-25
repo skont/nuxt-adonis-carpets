@@ -1,6 +1,6 @@
-# nxCarpets
+# testbootstrap
 
-> My riveting Nuxt.js project
+> My solid Nuxt.js project
 
 ## Build Setup
 

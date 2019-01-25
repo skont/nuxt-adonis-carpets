@@ -1,5 +1,6 @@
 const pkg = require('./package')
 
+
 module.exports = {
   mode: 'universal',
 
@@ -39,7 +40,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt'
