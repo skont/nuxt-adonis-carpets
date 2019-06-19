@@ -19,9 +19,12 @@ Route.on('/').render('welcome')
 
 
 //Customers routes
-Route.get('/customers', 'CustomerController.all')
+Route.get('customers', 'CustomerController.all')
 Route.get('customers/:code', 'CustomerController.customerByCode')
+Route.post('customers/add', 'CustomerController.addCustomer')
+Route.put('customers/edit/:id', 'CustomerController.editCustomer')
+Route.delete('customers/delete/:id', 'CustomerController.deleteCustomer')
 
 //Carpets routes
-Route.get('/carpets', 'CarpetController.all')
+Route.get('carpets', 'CarpetController.all')
 Route.get('carpets/:code', 'CarpetController.carpetByCode')

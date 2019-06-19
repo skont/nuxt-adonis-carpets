@@ -7,6 +7,7 @@
           <th>Name</th>
           <th>Code</th>
           <th>Address</th>
+          <th>Phone / Mobile</th>
         </tr>
       </thead>
       <tbody>
@@ -14,6 +15,7 @@
           <td>{{ c.Name }}</td>
           <td>{{c.Code}}</td>
           <td>{{c.Street}}, {{c.Zip}}, {{c.Area}}</td>
+          <td>{{c.Phone}} / {{c.Mobile}}</td>
           </tr>
       </tbody>
     </table>

@@ -1,4 +1,11 @@
-# Notes
+==Notes==
 
-Change database connection in .env file (most likely for dev env)
-install mssql driver version 4.1.0 only !
+In order to work we generate a model and a controller:
+
+adonis make:controller xxxx
+
+WE add the route in start/routes.js for GET and POST
+
+===Usefull Links===
+# https://blog.pusher.com/build-rest-apis-in-adonis-4-0/
+# https://adonisjs.com/docs/4.0/lucid#_inserts_updates
