@@ -30,8 +30,15 @@ class CustomerController {
     customer.Code = newCust.Code
     customer.Name = newCust.Name
     customer.Street = newCust.Street
+    customer.Floor = newCust.Floor
+    customer.Area = newCust.Area
+    customer.Zip = newCust.ZipCode
     customer.Phone = newCust.Phone
     customer.Mobile = newCust.Mobile
+    customer.Notes = newCust.Notes
+    customer.VATNumber = newCust.VATNumber
+    customer.MapPage = newCust.MapPage
+    customer.Customer_VATType2=newCust.Customer_VATType2
 
     await customer.save()
 

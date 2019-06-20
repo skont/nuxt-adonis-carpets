@@ -20,3 +20,13 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+=== font awsome
+# https://medium.com/@kozyreva.hanna/nuxt-js-fontawesome-integration-7ec56b1a41c8
+# https://github.com/FortAwesome/vue-fontawesome#nuxtjs
+
+npm i nuxt-fontawesome
+npm i @fortawesome/fontawesome-svg-core
+npm i @fortawesome/free-brands-svg-icons
+npm i @fortawesome/free-solid-svg-icons
+npm i @fortawesome/vue-fontawesome

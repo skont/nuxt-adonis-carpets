@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="c in customers">
+        <tr v-for="c in customers" v-bind:key="c">
           <td>{{ c.Name }}</td>
           <td>{{c.Code}}</td>
           <td>{{c.Street}}, {{c.Zip}}, {{c.Area}}</td>

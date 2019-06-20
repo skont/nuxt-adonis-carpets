@@ -1,29 +1,27 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="/customers">Customers</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-  </ul>
-</nav>
-    <nuxt />
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <nuxt-link :to="{ path: '/' }" class="nav-link">Home</nuxt-link>
+        </li>
+        <li class="nav-item active">
+          <!-- <a class="nav-link" href="/customers">Customers</a> -->
+          <nuxt-link :to="{ name: 'customers' }" class="nav-link">Customers</nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link :to="{ name: 'customers-addCustomer' }" class="nav-link">New Customer</nuxt-link>
+        </li>
+      </ul>
+    </nav>
+    <nuxt/>
   </div>
 </template>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
