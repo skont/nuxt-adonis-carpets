@@ -42,6 +42,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    //'@nuxtjs/proxy',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     // Doc: https://medium.com/@kozyreva.hanna/nuxt-js-fontawesome-integration-7ec56b1a41c8
@@ -63,10 +64,17 @@ module.exports = {
   ],
   /*
   ** Axios module configuration
+  ** https://axios.nuxtjs.org/options
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    //proxy: true
   },
+  
+  proxy: {
+    // Can have multiple values
+    //'/customers': 'http://127.0.0.1:3333/customers'
+   },
 
   /*
   ** Build configuration
