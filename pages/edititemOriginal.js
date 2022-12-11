@@ -2,23 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useState } from 'react'
-//import {edititemForm as itemForm} from '../siteconfig/forms'
 
 const EditItem = () => {
-
-// const FormField = ({ fieldlabel, fieldname, fieldtype, placeholder }) => {
-//     return (
-//         <Form.Group className="mb-3" controlId={fieldname}>
-//             <Form.Label>{fieldlabel}</Form.Label>
-//             <Form.Control
-//                 type={fieldtype}
-//                 name={fieldname}
-//                 placeholder={placeholder}
-//                 onChange={handleChange}
-//                 value={`entered${fieldname}`} />
-//         </Form.Group>
-//     )
-//     }
 
     const [enteredItemID, setItemID] = useState('');
     const [enteredWarehouse, setWarehouse] = useState('');
@@ -41,10 +26,7 @@ const EditItem = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        //reset the values of input fields
-
-
-        //construct the message
+          //construct the message
 
             const msg = {
                 'EditItem': {

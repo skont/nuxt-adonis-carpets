@@ -13,14 +13,14 @@ export const mainmenu = [
         submenu: [
             {
                 title: 'Edit Item',
-                path: '/edititem'
+                path: '/forms/edititem'
             },
             {
                 divider: true
             },
             {
-                title: 'Sub2',
-                path: '/'
+                title: 'Jumbo Registration',
+                path: '/forms/jumboregistration'
             }
         ]
     }
