@@ -40,7 +40,7 @@ export function TextField(props) {
 
 
 export function SelectField(props) {
-    const { name, label, options } = props
+    const { name, label,placeholder, options } = props
     return (
         <>
             {label && <label for={name}>{label}</label>}
@@ -50,7 +50,7 @@ export function SelectField(props) {
                 id={name}
                 name={name}
             >
-                <option value="" >Choose...</option>
+                <option value="" >{placeholder}</option>
                 {options.map((optn, index) => <option value={optn.value} label={optn.label || optn.value} />)}
             </Field>
             <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />

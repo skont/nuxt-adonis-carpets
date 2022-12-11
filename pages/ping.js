@@ -7,7 +7,7 @@ export async function getServerSideProps() {
 
     const result = await axios('http://192.168.1.14:4000/api/v1/Ping');
 
-    console.log(result.data)
+    //console.log(result.data)
     const d = result.data
 
     // Pass data to the page via props
@@ -18,12 +18,14 @@ export async function getServerSideProps() {
 const Ping = ({ d }) => {
 
     return (
+        <div>
         <ul>
-            <li>{d.version}</li>
-            <li>{d.startUp}</li>
-            <li>{d.numberOfRequests}</li>
+            <li>Service Version: {d.version}</li>
+            <li>Running since: {d.startUp}</li>
+            <li>Number of requests since start: {d.numberOfRequests}</li>
 
         </ul>
+        </div>
     )
 
 }

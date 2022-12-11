@@ -66,7 +66,6 @@ function DynForm() {
         const props = {
             name: elementName,
             label: elementSchema.label,
-            type: elementName.type,
             placeholder: elementSchema.placeholder,
             options: elementSchema.options
         };
@@ -81,7 +80,7 @@ function DynForm() {
 
     }
 
-    const onSubmit = (values, { setSubmitting, resetForm, setStatus }) => {
+    const handleSubmit = (values, { setSubmitting, resetForm, setStatus }) => {
         setSubmitting(false);
 
         const msg = constructMessage(msgtype,values)
@@ -105,7 +104,7 @@ function DynForm() {
                 enableReinitialize
                 initialValues={formData}
                 validationSchema={validationSchema}
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit}
             >
 
                 {Object.keys(formSchema).map((key, ind) => (
