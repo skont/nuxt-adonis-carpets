@@ -20,11 +20,11 @@ export default async function handler(req, res) {
 	try {
 		let response = await axios(options);
 		// Sends response to the client side
-		console.log(options.data)
+		//console.log(options.data)
 		res.status(200).json(response.status);
 	} catch (error) {
 		// Send error to the client side
-		console.log(error.Content)
+		//console.log(error.Content)
 		res.status(500).send('Internal API Error.');
 	}
 

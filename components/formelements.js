@@ -1,5 +1,4 @@
-import Button from 'react-bootstrap/Button';
-
+import { Button} from 'react-bootstrap';
 import {
     Formik,
     Form as FormikForm,
@@ -31,7 +30,7 @@ export function TextField(props) {
                 type="text"
                 name={name}
                 id={name}
-                placeholder={placeholder || ""} 
+                placeholder={placeholder || ""}
                 {...rest}
             />
             <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
@@ -39,13 +38,14 @@ export function TextField(props) {
     )
 }
 
+
 export function SelectField(props) {
     const { name, label, options } = props
     return (
         <>
             {label && <label for={name}>{label}</label>}
             <Field
-            className="form-control"
+                className="form-control"
                 as="select"
                 id={name}
                 name={name}
@@ -58,10 +58,10 @@ export function SelectField(props) {
     )
 }
 
-export function SubmitButton(props){
-    const { title,variant, ...rest } = props;
+export function SubmitButton(props) {
+    const { title, ...rest } = props;
     const { isSubmitting } = useFormikContext();
-    
+
     return (
         <Button type="submit" variant="primary" {...rest} disabled={isSubmitting}>{title}</Button>
     )

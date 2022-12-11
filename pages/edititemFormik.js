@@ -5,22 +5,6 @@ import axios from 'axios';
 
 // import edititemForm from '../siteconfig/forms'
 
-
-// const FormField = ({ fieldlabel, fieldname, fieldtype, placeholder }) => {
-//     return (
-//         <Form.Group className="mb-3" controlId={fieldname}>
-//             <Form.Label>{fieldlabel}</Form.Label>
-//             <Form.Control
-//                 type={fieldtype}
-//                 name={fieldname}
-//                 placeholder={placeholder}
-//                 onChange={formik.handleChange}
-//                 value={formik.values.ItemID} />
-//         </Form.Group>
-//     )
-
-// }
-
 const EditItem = () => {
     // Note that we have to initialize ALL of fields with values. These
     // could come from props, but since we don’t want to prefill this form,

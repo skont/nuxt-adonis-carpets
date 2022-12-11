@@ -9,6 +9,7 @@ export const EditITem = {
         type: "text",
         label: "Warehouse",
         required: true,
+        min: 3,
         placeholder: "Enter Warehouse"
     },
     Location: {
