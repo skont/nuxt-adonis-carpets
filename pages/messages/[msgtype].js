@@ -12,7 +12,7 @@ function DynForm() {
     const router = useRouter();
     let { msgtype } = router.query;
 
-     let formSchema = '';
+    let formSchema = '';
 
     switch (msgtype) {
         case "edititem":
@@ -54,7 +54,7 @@ function DynForm() {
             }
 
             if (formSchema[key].min) {
-                _validationSchema[key] = _validationSchema[key].min(formSchema[key].min,`The length of the fied should be ${formSchema[key].min}`)
+                _validationSchema[key] = _validationSchema[key].min(formSchema[key].min, `The length of the fied should be ${formSchema[key].min}`)
             }
         }
 
@@ -67,6 +67,7 @@ function DynForm() {
             name: elementName,
             label: elementSchema.label,
             placeholder: elementSchema.placeholder,
+            columnclass: elementSchema.columnclass,
             options: elementSchema.options
         };
 
@@ -83,19 +84,19 @@ function DynForm() {
     const handleSubmit = (values, { setSubmitting, resetForm, setStatus }) => {
         setSubmitting(false);
 
-        const msg = constructMessage(msgtype,values)
+        const msg = constructMessage(msgtype, values)
         axios
             .post('http://localhost:3000/api/sendmsg', msg)
             .then((res) => {
                 //alert(res.status);
                 if (res.status == 200) {
                     resetForm(true);
-                    
+
                     //setStatus(true);
-                                    };
+                };
             });
 
-       
+
     }
 
     return (
@@ -106,14 +107,16 @@ function DynForm() {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
             >
-
-                {Object.keys(formSchema).map((key, ind) => (
-                    <div key={key}>
-                        {getFormElement(key, formSchema[key])}
-                    </div>
-                ))}
+                <div class="row">
+                    {Object.keys(formSchema).map((key) => (
+                        <div key={key}>
+                            {getFormElement(key, formSchema[key])}
+                        </div>
+                    ))}
+                </div>
 
                 <SubmitButton title="Submit" />
+
 
             </Form>
         </div>

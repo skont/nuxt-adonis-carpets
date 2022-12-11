@@ -3,34 +3,46 @@ export function constructMessage(msgtype, vals) {
     const removeEmptyOrNull = (obj) => {
         Object.keys(obj).forEach(k =>
             (obj[k] && typeof obj[k] === 'object') && removeEmptyOrNull(obj[k]) ||
-            (!obj[k] && obj[k] !== undefined) && delete obj[k]
+            (!obj[k] && obj[k] !== undefined) && delete obj[k] ||
+            (!obj[k] && obj[k] == undefined) && delete obj[k]
         );
         return obj;
     };
 
+    let msg=''
+    
     if (msgtype === 'edititem') {
-        return (
-            {
-                'EditItem': {
-                    'Edits': {
-                        'Edit':
-                        {
-                            'Item': removeEmptyOrNull(vals)
-                        },
-                        'ChangeReason': 'TI'
-                    }
+        msg =
+        {
+            'EditItem': {
+                'Edits': {
+                    'Edit':
+                    {
+                        'Item': {
+                            'ItemID': vals.ItemID,
+                            'Warehouse': vals.Warehouse,
+                            'Location': vals.Location
+                        }
+                    },
+                    'ChangeReason': vals.ChangeReason
                 }
             }
-        )
+        }
+
     }
 
     if (msgtype === 'jumboregistration') {
-        return (
-            {
-                'JumboRegistration': {
-                    'Jumbo': removeEmptyOrNull(vals)
+        msg =
+        {
+            'JumboRegistration': {
+                'Jumbo': {
+                    'JumboID': vals.JumboID
                 }
             }
-        )
+        }
     }
+
+    return (
+        removeEmptyOrNull(msg)
+    )
 }
