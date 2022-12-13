@@ -5,7 +5,8 @@ import { Form, TextField, SelectField, SubmitButton, TextFieldBS } from '../../c
 import * as Yup from 'yup';
 import * as FormTypes from '../../siteconfig/forms'
 import { constructMessage } from '../../components/helperfunctions';
-
+import { Row, Col } from 'react-bootstrap';
+import { requestToBodyStream } from 'next/dist/server/body-streams';
 
 function DynForm() {
 
@@ -67,18 +68,35 @@ function DynForm() {
             name: elementName,
             label: elementSchema.label,
             placeholder: elementSchema.placeholder,
-            columnclass: elementSchema.columnclass,
             options: elementSchema.options
         };
+        //console.log(props,elementName,elementSchema.type);
 
         if (elementSchema.type === "text" || elementSchema.type === "email") {
-            return <TextField {...props} />
+            return (
+                <TextField {...props} />
+            )
         }
 
         if (elementSchema.type === "select") {
-            return <SelectField  {...props} />
+            return (
+                <SelectField  {...props} />
+            )
         }
 
+    }
+
+    const getForm = (fsName, fsSchema) => {
+        return (
+
+            Object.keys(fsSchema).map((key) => (
+                <Col key={key}>
+                    {getFormElement(key, fsSchema[key])}
+                </Col>
+            ))
+
+
+        )
     }
 
     const handleSubmit = (values, { setSubmitting, resetForm, setStatus }) => {
@@ -107,15 +125,16 @@ function DynForm() {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
             >
-                <div class="row">
-                    {Object.keys(formSchema).map((key) => (
-                        <div key={key}>
-                            {getFormElement(key, formSchema[key])}
-                        </div>
-                    ))}
-                </div>
 
-                <SubmitButton title="Submit" />
+                {Object.keys(formSchema).map((key) => (
+                    <Row key={key}>
+                        {getForm(key, formSchema[key])}
+                    </Row>
+                ))}
+
+                <Row>
+                    <SubmitButton title="Submit" />
+                </Row>
 
 
             </Form>

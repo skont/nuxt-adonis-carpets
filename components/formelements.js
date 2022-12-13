@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import {
     Formik,
     Form as FormikForm,
@@ -21,10 +21,10 @@ export function Form(props) {
 }
 
 export function TextField(props) {
-    const { name, label, placeholder, columnclass, ...rest } = props
+    const { name, label, placeholder, ...rest } = props
     return (
-        <>
-            <div class={columnclass}>
+        
+            <>
                 {label && <label htmlFor={name}>{label}</label>}
                 <Field
                     className="form-control"
@@ -35,18 +35,17 @@ export function TextField(props) {
                     {...rest}
                 />
                 <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
-            </div>
-        </>
+            </>
+        
     )
 }
 
 
 export function SelectField(props) {
-    const { name, label, placeholder, columnclass, options } = props
+    const { name, label, placeholder, options } = props
     return (
-        <>
-            <div class={columnclass}>
-                {label && <label for={name}>{label}</label>}
+            <>
+                {label && <label htmlFor={name}>{label}</label>}
                 <Field
                     className="form-control"
                     as="select"
@@ -57,8 +56,7 @@ export function SelectField(props) {
                     {options.map((optn, index) => <option value={optn.value} label={optn.label || optn.value} />)}
                 </Field>
                 <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
-            </div>
-        </>
+            </>
     )
 }
 
