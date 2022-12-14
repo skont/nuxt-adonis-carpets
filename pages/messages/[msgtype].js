@@ -39,24 +39,30 @@ function DynForm() {
         let _formData = {};
         let _validationSchema = {};
 
-        for (var key of Object.keys(formSchema)) {
-            _formData[key] = "";
+        for (var row of Object.keys(fs)) {
 
-            if (formSchema[key].type === "text") {
-                _validationSchema[key] = Yup.string();
-            } else if (formSchema[key].type === "email") {
-                _validationSchema[key] = Yup.string().email()
-            } else if (formSchema[key].type === "select") {
-                _validationSchema[key] = Yup.string().oneOf(formSchema[key].options.map(o => o.value));
-            }
+                           //console.log(key);
+                // console.log(formSchema);
+                // console.log(formSchema[key]);
 
-            if (formSchema[key].required) {
-                _validationSchema[key] = _validationSchema[key].required('The field required');
-            }
+                _formData[key] = "";
 
-            if (formSchema[key].min) {
-                _validationSchema[key] = _validationSchema[key].min(formSchema[key].min, `The length of the fied should be ${formSchema[key].min}`)
-            }
+                if (formSchema[key].type === "text") {
+                    _validationSchema[key] = Yup.string();
+                } else if (formSchema[key].type === "email") {
+                    _validationSchema[key] = Yup.string().email()
+                } else if (formSchema[key].type === "select") {
+                    _validationSchema[key] = Yup.string().oneOf(formSchema[key].options.map(o => o.value));
+                }
+
+                if (formSchema[key].required) {
+                    _validationSchema[key] = _validationSchema[key].required('The field required');
+                }
+
+                if (formSchema[key].min) {
+                    _validationSchema[key] = _validationSchema[key].min(formSchema[key].min, `The length of the fied should be ${formSchema[key].min}`)
+                }
+            
         }
 
         setFormData(_formData);

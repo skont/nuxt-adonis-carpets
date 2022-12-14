@@ -1,4 +1,4 @@
-import { Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import {
     Formik,
     Form as FormikForm,
@@ -23,20 +23,20 @@ export function Form(props) {
 export function TextField(props) {
     const { name, label, placeholder, ...rest } = props
     return (
-        
-            <>
-                {label && <label htmlFor={name}>{label}</label>}
-                <Field
-                    className="form-control"
-                    type="text"
-                    name={name}
-                    id={name}
-                    placeholder={placeholder || ""}
-                    {...rest}
-                />
-                <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
-            </>
-        
+
+        <>
+            {label && <label htmlFor={name}>{label}</label>}
+            <Field
+                className="form-control"
+                type="text"
+                name={name}
+                id={name}
+                placeholder={placeholder || ""}
+                {...rest}
+            />
+            <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
+        </>
+
     )
 }
 
@@ -44,19 +44,19 @@ export function TextField(props) {
 export function SelectField(props) {
     const { name, label, placeholder, options } = props
     return (
-            <>
-                {label && <label htmlFor={name}>{label}</label>}
-                <Field
-                    className="form-control"
-                    as="select"
-                    id={name}
-                    name={name}
-                >
-                    <option value="" >{placeholder}</option>
-                    {options.map((optn, index) => <option value={optn.value} label={optn.label || optn.value} />)}
-                </Field>
-                <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
-            </>
+        <>
+            {label && <label htmlFor={name}>{label}</label>}
+            <Field
+                className="form-control"
+                as="select"
+                id={name}
+                name={name}
+            >
+                <option value="" >{placeholder}</option>
+                {options.map((optn, index) => <option value={optn.value} label={optn.label || optn.value} />)}
+            </Field>
+            <ErrorMessage name={name} render={msg => <div style={{ color: 'red' }} >{msg}</div>} />
+        </>
     )
 }
 
